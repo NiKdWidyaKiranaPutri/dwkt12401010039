@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Luas dan Keliling Ruang Bangun</title>
+</head>
+<style>
+  * {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  .tengah {
+    display: flex;
+    justify-content: center;
+  }
+  .card {
+    width: 40%;
+    box-shadow: 0 4px 8px 0;
+  }
+  #txBARU {
+    font-size: 25px;
+    color: cadetblue;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: whitesmoke;
+    display: flex;
+    justify-content: center;
+  }
+  .cardbody {
+    padding: 2px 16px;
+  }
+  .cardfooter {
+    padding: 6px;
+    background-color: beige;
+    display: flex;
+    justify-content: right;
+  }
+  label {
+    font-size: 14px;
+    font-weight: bold;
+  }
+  input[type=text] {
+    width: 100%;
+    padding: 2px;
+    margin: 8px 0;
+  }
+  button {
+    border: none;
+    border-radius: 25px;
+    background-color: cornflowerblue;
+    padding: 8px 20px;
+    color: rgb(240, 251, 255);
+    font-weight: bold;
+  }
+</style>
+<body>
+  <div class="tengah">
+    <div class="card">
+      <h1 id="txBARU">Rumus Ruang Bangun Segitiga</h1>
+
+      <div class="cardbody">
+        <form>
+          <label>Nilai Alas (m)</label>
+          <input type="text" name="txALAS" id="txALAS">
+          <label>Nilai Tinggi (m) </label>
+          <input type="text" name="txTINGGI" id="txTINGGI">
+          <label> Nilai Sisi A (m)</label>
+          <input type="text" name="txSISIA" id="txSISIA">
+          <label> Nilai Sisi B (m)</label>
+          <input type="text" name="txSISIB" id="txSISIB">
+          <label> Nilai Sisi C (m)</label>
+          <input type="text" name="SISIC" id="txSISIC">
+        </form>
+
+        <div id="txHASIL">Nilai Luas dan Keliling</div>
+      </div>
+      <div class="cardfooter">
+        <button onclick="pesan()">Hitung Luas dan Keliling</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function pesan() {
+      let alas = parseFloat(document.getElementById("txALAS").value);
+      let tinggi = parseFloat(document.getElementById("txTINGGI").value);
+      let sisiA = parseFloat(document.getElementById("txSISIA").value);
+      let sisiB = parseFloat(document.getElementById("txSISIB").value);
+      let sisiC = parseFloat(document.getElementById("txSISIC").value);
+
+      // Proses hitung luas segitiga
+      let luas = 0.5 * alas * tinggi;
+
+      // Proses hitung keliling
+      let keliling = sisiA + sisiB + sisiC;
+
+      let hsl = "Hitung Luas Segitiga <br>";
+      hsl += "Luas = 1/2 x Alas x Tinggi <br>";
+      hsl += "Luas = 1/2 x " + alas + " m x " + tinggi + " m <br>";
+      hsl += "Luas = " + luas.toFixed(2) + " m<sup>2</sup><br><br>";
+      hsl += "Hitung Keliling Segitiga <br>";
+      hsl += "Keliling = sisi A + sisi B + sisi C <br>";
+      hsl += "Keliling = " + sisiA + " m +" + sisiB + " m +" + sisiC + " m <br>";
+      hsl += "Keliling = " + keliling + " m";
+
+      document.getElementById("txHASIL").innerHTML = hsl;
+    }
+  </script>
+</body>
+</html>
